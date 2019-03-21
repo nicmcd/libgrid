@@ -30,8 +30,6 @@
  */
 #include "grid/Grid.h"
 
-#include <cassert>
-
 #include <sstream>
 
 namespace grid {
