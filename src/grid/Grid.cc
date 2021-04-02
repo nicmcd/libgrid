@@ -34,16 +34,12 @@
 
 namespace grid {
 
-Grid::Grid(u64 _rows, u64 _columns)
-    : rows_(_rows), columns_(_columns) {
-  // initialize space for grid
+Grid::Grid(u64 _rows, u64 _columns) : rows_(_rows), columns_(_columns) {
   values_.resize(rows_);
   for (auto& v : values_) {
     v.resize(columns_, "");
   }
-
-  // initialize widths
-  columnWidths_.resize(columns_, 0);
+  column_widths_.resize(columns_, 0);
 }
 
 Grid::~Grid() {}
@@ -51,8 +47,8 @@ Grid::~Grid() {}
 void Grid::set(u64 _row, u64 _column, const std::string& _value) {
   values_.at(_row).at(_column) = _value;
   u64 size = _value.size();
-  if (size > columnWidths_.at(_column)) {
-    columnWidths_.at(_column) = size;
+  if (size > column_widths_.at(_column)) {
+    column_widths_.at(_column) = size;
   }
 }
 
@@ -62,8 +58,8 @@ std::string Grid::toString() const {
     for (u64 column = 0; column < columns_; column++) {
       const std::string& val = values_.at(row).at(column);
       ss << val;
-      for (u64 left = columnWidths_.at(column) + 1 - val.size();
-           left > 0; left--) {
+      for (u64 left = column_widths_.at(column) + 1 - val.size(); left > 0;
+           left--) {
         ss << ' ';
       }
     }

@@ -30,9 +30,9 @@
  */
 #include "grid/Grid.h"
 
-#include <gtest/gtest.h>
-
 #include <string>
+
+#include "gtest/gtest.h"
 
 TEST(Grid, basic) {
   grid::Grid grid(3, 4);

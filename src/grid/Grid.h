@@ -51,7 +51,7 @@ class Grid {
   u64 rows_;
   u64 columns_;
   std::vector<std::vector<std::string> > values_;
-  std::vector<u64> columnWidths_;
+  std::vector<u64> column_widths_;
 };
 
 }  // namespace grid
